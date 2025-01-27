@@ -1,4 +1,5 @@
 #! /bin/bash
+MAJOR=511
 
 function load() {
     echo "Loading the module..."
@@ -8,8 +9,8 @@ function load() {
     rm -rf /dev/chard*
 
     # Re-make the special char files.
-    mknod /dev/chard3 c 506 3
-    mknod /dev/chard4 c 506 4
+    mknod /dev/chard3 c ${MAJOR} 3
+    mknod /dev/chard4 c ${MAJOR} 4
 
     # Script is run as superuser so the device files are owner by root.
     # Leave it as root for now.
